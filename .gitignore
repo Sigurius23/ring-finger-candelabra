@@ -2,6 +2,6 @@ __pycache__/
 *.pyc
 out/build.log
 *.stl
-*.zip
 preview.html
 *.png
+!versions/*.zip
