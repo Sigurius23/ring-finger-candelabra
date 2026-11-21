@@ -1,0 +1,696 @@
+{
+ "pin_hole_mm": 1.8,
+ "parts": {
+  "base": {
+   "file": "bone-base.stl",
+   "watertight": true,
+   "volume_cm3": 8.52,
+   "size_mm": [
+    26.9,
+    27.0,
+    29.0
+   ]
+  },
+  "proximal": {
+   "file": "bone-proximal.stl",
+   "watertight": true,
+   "volume_cm3": 4.99,
+   "size_mm": [
+    18.3,
+    15.6,
+    61.8
+   ]
+  },
+  "middle": {
+   "file": "bone-middle.stl",
+   "watertight": true,
+   "volume_cm3": 2.07,
+   "size_mm": [
+    15.3,
+    13.0,
+    39.1
+   ]
+  },
+  "distal": {
+   "file": "bone-distal.stl",
+   "watertight": true,
+   "volume_cm3": 0.96,
+   "size_mm": [
+    11.7,
+    11.2,
+    30.5
+   ]
+  }
+ },
+ "joints": {
+  "knuckle": {
+   "between": [
+    "base",
+    "proximal"
+   ],
+   "bends_deg": [
+    0.0,
+    65.0
+   ],
+   "pin_length_mm": 14.2
+  },
+  "middle joint": {
+   "between": [
+    "proximal",
+    "middle"
+   ],
+   "bends_deg": [
+    -5.0,
+    80.0
+   ],
+   "pin_length_mm": 12.7
+  },
+  "end joint": {
+   "between": [
+    "middle",
+    "distal"
+   ],
+   "bends_deg": [
+    -7.5,
+    85.0
+   ],
+   "pin_length_mm": 9.9
+  }
+ },
+ "poses": {
+  "straight": {
+   "angles_deg": [
+    4.0,
+    10.0,
+    14.0
+   ],
+   "file": "pose-straight.stl",
+   "reachable": {
+    "knuckle": true,
+    "middle joint": true,
+    "end joint": true
+   },
+   "above_cup_mm": 115.7,
+   "rings": [
+    {
+     "us": 3.0,
+     "id_mm": 14.1,
+     "rests": "rests on the finger",
+     "z_mm": 69.7,
+     "along_mm": 49.0,
+     "centre": [
+      0.0,
+      -6.39,
+      69.69
+     ],
+     "axis": [
+      0.0,
+      0.242,
+      -0.97
+     ]
+    },
+    {
+     "us": 4.0,
+     "id_mm": 14.9,
+     "rests": "rests on the finger",
+     "z_mm": 69.0,
+     "along_mm": 49.8,
+     "centre": [
+      0.0,
+      -6.21,
+      68.96
+     ],
+     "axis": [
+      0.0,
+      0.242,
+      -0.97
+     ]
+    },
+    {
+     "us": 5.0,
+     "id_mm": 15.7,
+     "rests": "rests on the finger",
+     "z_mm": 20.6,
+     "along_mm": 98.5,
+     "centre": [
+      0.0,
+      -1.05,
+      20.61
+     ],
+     "axis": [
+      0.0,
+      0.07,
+      -0.998
+     ]
+    },
+    {
+     "us": 6.0,
+     "id_mm": 16.5,
+     "rests": "rests on the finger",
+     "z_mm": 20.1,
+     "along_mm": 99.0,
+     "centre": [
+      0.0,
+      -1.02,
+      20.11
+     ],
+     "axis": [
+      0.0,
+      0.07,
+      -0.998
+     ]
+    },
+    {
+     "us": 7.0,
+     "id_mm": 17.3,
+     "rests": "rests on the finger",
+     "z_mm": 19.6,
+     "along_mm": 99.5,
+     "centre": [
+      0.0,
+      -0.98,
+      19.61
+     ],
+     "axis": [
+      0.0,
+      0.07,
+      -0.998
+     ]
+    },
+    {
+     "us": 8.0,
+     "id_mm": 18.1,
+     "rests": "rests on the finger",
+     "z_mm": 18.9,
+     "along_mm": 100.2,
+     "centre": [
+      0.0,
+      -0.93,
+      18.86
+     ],
+     "axis": [
+      0.0,
+      0.07,
+      -0.998
+     ]
+    },
+    {
+     "us": 9.0,
+     "id_mm": 18.9,
+     "rests": "rests on the finger",
+     "z_mm": 3.4,
+     "along_mm": 115.8,
+     "centre": [
+      0.0,
+      0.0,
+      3.39
+     ],
+     "axis": [
+      0.0,
+      0.01,
+      -1.0
+     ]
+    },
+    {
+     "us": 10.0,
+     "id_mm": 19.8,
+     "rests": "rests on the finger",
+     "z_mm": 3.4,
+     "along_mm": 115.8,
+     "centre": [
+      0.0,
+      0.0,
+      3.39
+     ],
+     "axis": [
+      0.0,
+      0.01,
+      -1.0
+     ]
+    },
+    {
+     "us": 11.0,
+     "id_mm": 20.6,
+     "rests": "rests on the finger",
+     "z_mm": 3.4,
+     "along_mm": 115.8,
+     "centre": [
+      0.0,
+      0.0,
+      3.39
+     ],
+     "axis": [
+      0.0,
+      0.01,
+      -1.0
+     ]
+    },
+    {
+     "us": 12.0,
+     "id_mm": 21.4,
+     "rests": "rests on the finger",
+     "z_mm": 3.4,
+     "along_mm": 115.8,
+     "centre": [
+      0.0,
+      0.0,
+      3.39
+     ],
+     "axis": [
+      0.0,
+      0.01,
+      -1.0
+     ]
+    },
+    {
+     "us": 13.0,
+     "id_mm": 22.2,
+     "rests": "rests on the finger",
+     "z_mm": 3.1,
+     "along_mm": 116.0,
+     "centre": [
+      0.0,
+      0.0,
+      3.14
+     ],
+     "axis": [
+      0.0,
+      0.007,
+      -1.0
+     ]
+    }
+   ]
+  },
+  "curled": {
+   "angles_deg": [
+    8.0,
+    40.0,
+    55.0
+   ],
+   "file": "pose-curled.stl",
+   "reachable": {
+    "knuckle": true,
+    "middle joint": true,
+    "end joint": true
+   },
+   "above_cup_mm": 86.7,
+   "rings": [
+    {
+     "us": 3.0,
+     "id_mm": 14.1,
+     "rests": "rests on the finger",
+     "z_mm": 66.0,
+     "along_mm": 49.0,
+     "centre": [
+      0.0,
+      -15.59,
+      66.01
+     ],
+     "axis": [
+      0.0,
+      0.743,
+      -0.669
+     ]
+    },
+    {
+     "us": 4.0,
+     "id_mm": 14.9,
+     "rests": "rests on the finger",
+     "z_mm": 65.5,
+     "along_mm": 49.8,
+     "centre": [
+      0.0,
+      -15.03,
+      65.51
+     ],
+     "axis": [
+      0.0,
+      0.743,
+      -0.669
+     ]
+    },
+    {
+     "us": 5.0,
+     "id_mm": 15.7,
+     "rests": "rests on the finger",
+     "z_mm": 20.5,
+     "along_mm": 98.5,
+     "centre": [
+      0.0,
+      -2.1,
+      20.5
+     ],
+     "axis": [
+      0.0,
+      0.139,
+      -0.99
+     ]
+    },
+    {
+     "us": 6.0,
+     "id_mm": 16.5,
+     "rests": "rests on the finger",
+     "z_mm": 20.0,
+     "along_mm": 99.0,
+     "centre": [
+      0.0,
+      -2.03,
+      20.0
+     ],
+     "axis": [
+      0.0,
+      0.139,
+      -0.99
+     ]
+    },
+    {
+     "us": 7.0,
+     "id_mm": 17.3,
+     "rests": "rests on the finger",
+     "z_mm": 19.5,
+     "along_mm": 99.5,
+     "centre": [
+      0.0,
+      -1.96,
+      19.51
+     ],
+     "axis": [
+      0.0,
+      0.139,
+      -0.99
+     ]
+    },
+    {
+     "us": 8.0,
+     "id_mm": 18.1,
+     "rests": "rests on the finger",
+     "z_mm": 18.8,
+     "along_mm": 100.2,
+     "centre": [
+      0.0,
+      -1.86,
+      18.77
+     ],
+     "axis": [
+      0.0,
+      0.139,
+      -0.99
+     ]
+    },
+    {
+     "us": 9.0,
+     "id_mm": 18.9,
+     "rests": "rests on the finger",
+     "z_mm": 3.4,
+     "along_mm": 115.8,
+     "centre": [
+      0.0,
+      0.0,
+      3.39
+     ],
+     "axis": [
+      0.0,
+      0.02,
+      -1.0
+     ]
+    },
+    {
+     "us": 10.0,
+     "id_mm": 19.8,
+     "rests": "rests on the finger",
+     "z_mm": 3.4,
+     "along_mm": 115.8,
+     "centre": [
+      0.0,
+      0.0,
+      3.39
+     ],
+     "axis": [
+      0.0,
+      0.02,
+      -1.0
+     ]
+    },
+    {
+     "us": 11.0,
+     "id_mm": 20.6,
+     "rests": "rests on the finger",
+     "z_mm": 3.4,
+     "along_mm": 115.8,
+     "centre": [
+      0.0,
+      0.0,
+      3.39
+     ],
+     "axis": [
+      0.0,
+      0.02,
+      -1.0
+     ]
+    },
+    {
+     "us": 12.0,
+     "id_mm": 21.4,
+     "rests": "rests on the finger",
+     "z_mm": 3.4,
+     "along_mm": 115.8,
+     "centre": [
+      0.0,
+      0.0,
+      3.39
+     ],
+     "axis": [
+      0.0,
+      0.02,
+      -1.0
+     ]
+    },
+    {
+     "us": 13.0,
+     "id_mm": 22.2,
+     "rests": "rests on the finger",
+     "z_mm": 3.4,
+     "along_mm": 115.8,
+     "centre": [
+      0.0,
+      0.0,
+      3.39
+     ],
+     "axis": [
+      0.0,
+      0.02,
+      -1.0
+     ]
+    }
+   ]
+  },
+  "hook": {
+   "angles_deg": [
+    0.0,
+    25.0,
+    75.0
+   ],
+   "file": "pose-hook.stl",
+   "reachable": {
+    "knuckle": true,
+    "middle joint": true,
+    "end joint": true
+   },
+   "above_cup_mm": 94.9,
+   "rings": [
+    {
+     "us": 3.0,
+     "id_mm": 14.1,
+     "rests": "rests on the finger",
+     "z_mm": 69.1,
+     "along_mm": 49.0,
+     "centre": [
+      0.0,
+      -4.62,
+      69.12
+     ],
+     "axis": [
+      0.0,
+      0.423,
+      -0.906
+     ]
+    },
+    {
+     "us": 4.0,
+     "id_mm": 14.9,
+     "rests": "rests on the finger",
+     "z_mm": 68.4,
+     "along_mm": 49.8,
+     "centre": [
+      0.0,
+      -4.3,
+      68.44
+     ],
+     "axis": [
+      0.0,
+      0.423,
+      -0.906
+     ]
+    },
+    {
+     "us": 5.0,
+     "id_mm": 15.7,
+     "rests": "rests on the finger",
+     "z_mm": 20.6,
+     "along_mm": 98.5,
+     "centre": [
+      0.0,
+      0.0,
+      20.64
+     ],
+     "axis": [
+      0.0,
+      0.0,
+      -1.0
+     ]
+    },
+    {
+     "us": 6.0,
+     "id_mm": 16.5,
+     "rests": "rests on the finger",
+     "z_mm": 20.1,
+     "along_mm": 99.0,
+     "centre": [
+      0.0,
+      0.0,
+      20.14
+     ],
+     "axis": [
+      0.0,
+      0.0,
+      -1.0
+     ]
+    },
+    {
+     "us": 7.0,
+     "id_mm": 17.3,
+     "rests": "rests on the finger",
+     "z_mm": 19.6,
+     "along_mm": 99.5,
+     "centre": [
+      0.0,
+      0.0,
+      19.64
+     ],
+     "axis": [
+      0.0,
+      0.0,
+      -1.0
+     ]
+    },
+    {
+     "us": 8.0,
+     "id_mm": 18.1,
+     "rests": "rests on the finger",
+     "z_mm": 18.9,
+     "along_mm": 100.2,
+     "centre": [
+      0.0,
+      0.0,
+      18.89
+     ],
+     "axis": [
+      0.0,
+      0.0,
+      -1.0
+     ]
+    },
+    {
+     "us": 9.0,
+     "id_mm": 18.9,
+     "rests": "rests on the finger",
+     "z_mm": 3.1,
+     "along_mm": 116.0,
+     "centre": [
+      0.0,
+      0.0,
+      3.14
+     ],
+     "axis": [
+      0.0,
+      0.0,
+      -1.0
+     ]
+    },
+    {
+     "us": 10.0,
+     "id_mm": 19.8,
+     "rests": "rests on the finger",
+     "z_mm": 3.1,
+     "along_mm": 116.0,
+     "centre": [
+      0.0,
+      0.0,
+      3.14
+     ],
+     "axis": [
+      0.0,
+      0.0,
+      -1.0
+     ]
+    },
+    {
+     "us": 11.0,
+     "id_mm": 20.6,
+     "rests": "rests on the finger",
+     "z_mm": 3.1,
+     "along_mm": 116.0,
+     "centre": [
+      0.0,
+      0.0,
+      3.14
+     ],
+     "axis": [
+      0.0,
+      0.0,
+      -1.0
+     ]
+    },
+    {
+     "us": 12.0,
+     "id_mm": 21.4,
+     "rests": "rests on the finger",
+     "z_mm": 3.1,
+     "along_mm": 116.0,
+     "centre": [
+      0.0,
+      0.0,
+      3.14
+     ],
+     "axis": [
+      0.0,
+      0.0,
+      -1.0
+     ]
+    },
+    {
+     "us": 13.0,
+     "id_mm": 22.2,
+     "rests": "rests on the finger",
+     "z_mm": 3.1,
+     "along_mm": 116.0,
+     "centre": [
+      0.0,
+      0.0,
+      3.14
+     ],
+     "axis": [
+      0.0,
+      0.0,
+      -1.0
+     ]
+    }
+   ]
+  }
+ },
+ "pivots_mm": [
+  5.5536639999999995,
+  53.66688,
+  32.468768000000004
+ ]
+}

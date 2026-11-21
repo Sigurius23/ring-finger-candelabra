@@ -1,0 +1,12 @@
+candle-straight: 300000 faces, watertight=True, 24.8 cm3, 86.3 mm above rim, plug 22.0 / ribs 22.63 mm, overhang 64.0 mm2, 65.0 s
+  rings rest at (mm above rim): US7:46.5, US8:43.5, US9:18.6, US10:6.4, US11:2.1, US12:1.9, US13:0.4
+candle-crooked: 299998 faces, watertight=False, 23.39 cm3, 76.0 mm above rim, plug 22.0 / ribs 22.64 mm, overhang 190.0 mm2, 86.0 s
+  rings rest at (mm above rim): US7:41.8, US8:39.3, US9:10.5, US10:2.8, US11:2.6, US12:1.8, US13:0.8
+candle-slim: 300000 faces, watertight=True, 16.01 cm3, 73.3 mm above rim, plug 22.0 / ribs 22.64 mm, overhang 36.0 mm2, 42.8 s
+  rings rest at (mm above rim): US5:2.6, US6:2.6, US7:2.6, US8:2.6, US9:2.4, US10:2.1, US11:1.9, US12:1.6, US13:0.9
+candle-straight-drips: 300000 faces, watertight=True, 25.7 cm3, 87.5 mm above rim, plug 22.0 / ribs 22.63 mm, overhang 317.0 mm2, 79.2 s
+  rings rest at (mm above rim): US9:18.6, US10:6.4, US11:3.9, US12:3.9, US13:3.9
+candle-crooked-drips: 299996 faces, watertight=True, 24.31 cm3, 76.6 mm above rim, plug 22.0 / ribs 22.62 mm, overhang 428.0 mm2, 106.2 s
+  rings rest at (mm above rim): US9:10.5, US10:4.5, US11:4.5, US12:4.5, US13:4.3
+candle-slim-drips: 300000 faces, watertight=True, 17.09 cm3, 74.7 mm above rim, plug 22.0 / ribs 22.64 mm, overhang 402.0 mm2, 59.3 s
+  rings rest at (mm above rim): US6:4.4, US7:4.4, US8:4.4, US9:4.4, US10:4.4, US11:4.4, US12:3.9, US13:3.9

@@ -1,0 +1,10 @@
+base {'file': 'bone-base.stl', 'watertight': True, 'volume_cm3': 8.52, 'size_mm': [26.9, 27.0, 29.0]}
+proximal {'file': 'bone-proximal.stl', 'watertight': True, 'volume_cm3': 4.99, 'size_mm': [18.3, 15.6, 61.8]}
+middle {'file': 'bone-middle.stl', 'watertight': True, 'volume_cm3': 2.07, 'size_mm': [15.3, 13.0, 39.1]}
+distal {'file': 'bone-distal.stl', 'watertight': True, 'volume_cm3': 0.96, 'size_mm': [11.7, 11.2, 30.5]}
+knuckle {'between': ['base', 'proximal'], 'bends_deg': (0.0, 65.0), 'pin_length_mm': 14.2}
+middle joint {'between': ['proximal', 'middle'], 'bends_deg': (-5.0, 80.0), 'pin_length_mm': 12.7}
+end joint {'between': ['middle', 'distal'], 'bends_deg': (-7.5, 85.0), 'pin_length_mm': 9.9}
+straight (4.0, 10.0, 14.0) reachable: {'knuckle': True, 'middle joint': True, 'end joint': True} rings: US3:69.7, US4:69.0, US5:20.6, US6:20.1, US7:19.6, US8:18.9, US9:3.4, US10:3.4, US11:3.4, US12:3.4, US13:3.1
+curled (8.0, 40.0, 55.0) reachable: {'knuckle': True, 'middle joint': True, 'end joint': True} rings: US3:66.0, US4:65.5, US5:20.5, US6:20.0, US7:19.5, US8:18.8, US9:3.4, US10:3.4, US11:3.4, US12:3.4, US13:3.4
+hook (0.0, 25.0, 75.0) reachable: {'knuckle': True, 'middle joint': True, 'end joint': True} rings: US3:69.1, US4:68.4, US5:20.6, US6:20.1, US7:19.6, US8:18.9, US9:3.1, US10:3.1, US11:3.1, US12:3.1, US13:3.1

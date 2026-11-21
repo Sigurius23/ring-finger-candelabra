@@ -1,0 +1,561 @@
+<title>Ring Finger Candles</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one stage (the 3D candelabra) above a row of finger cards and the print notes. */
+:root {
+  --bg: #eef0ea;          /* pale sage paper */
+  --panel: #f8f9f5;
+  --ink: #1f2622;
+  --muted: #5d6862;
+  --line: #cfd5cc;
+  --accent: #8a6a2e;      /* aged brass */
+  --accent-ink: #fff9ec;
+  --velvet: #2f4a3c;      /* bottle-green velvet */
+  --stage: #dfe4da;
+  --warn: #8c3b2a;
+  --display: "IM Fell English SC", "Iowan Old Style", Georgia, serif;
+  --text: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101713; --panel: #17201b; --ink: #e6e9e2; --muted: #9aa59e; --line: #2c3a32;
+    --accent: #c9a25a; --accent-ink: #1a1408; --velvet: #9cc2ad; --stage: #0b110e; --warn: #e08a72;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101713; --panel: #17201b; --ink: #e6e9e2; --muted: #9aa59e; --line: #2c3a32;
+  --accent: #c9a25a; --accent-ink: #1a1408; --velvet: #9cc2ad; --stage: #0b110e; --warn: #e08a72;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--text); line-height: 1.5; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 22px; }
+header { display: grid; gap: 6px; }
+h1 { font-family: var(--display); font-weight: 400; font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1.05;
+  margin: 0; color: var(--velvet); text-wrap: balance; letter-spacing: .01em; }
+.lede { margin: 0; color: var(--muted); max-width: 64ch; }
+.stage { position: relative; background: var(--stage); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+#view { display: block; width: 100%; height: min(68vh, 620px); min-height: 360px; touch-action: none; }
+.bar { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--panel); }
+.seg button { font: 500 .9rem var(--text); color: var(--muted); background: none; border: 0; border-radius: 999px;
+  padding: 7px 16px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--velvet); color: var(--bg); }
+.seg button:focus-visible, .chk input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tools { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.sel { display: inline-flex; gap: 8px; align-items: center; color: var(--muted); font-size: .9rem; }
+.sel select { font: 500 .9rem var(--text); color: var(--ink); background: var(--panel); border: 1px solid var(--line);
+  border-radius: 6px; padding: 6px 8px; }
+.sel select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.chk { display: inline-flex; gap: 8px; align-items: center; color: var(--muted); font-size: .9rem; cursor: pointer; }
+.chk input { accent-color: var(--accent); width: 16px; height: 16px; }
+.hint { position: absolute; left: 12px; bottom: 10px; font-size: .78rem; color: var(--muted); pointer-events: none; }
+.poser { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; align-items: center; max-width: 560px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 12px 16px; font-size: .88rem; }
+.poser[hidden] { display: none; }
+.poser-title { grid-column: 1 / -1; font-weight: 600; color: var(--velvet); }
+.poser label { color: var(--muted); white-space: nowrap; }
+.poser output { font-variant-numeric: tabular-nums; color: var(--ink); margin-left: 4px; }
+.poser input { width: 100%; accent-color: var(--accent); }
+.credit { font-size: .78rem; color: var(--muted); margin: 0; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px; display: grid;
+  gap: 10px; align-content: start; min-width: 0; }
+.card h2 { font-family: var(--display); font-weight: 400; font-size: 1.35rem; margin: 0; color: var(--velvet); }
+.file { font-family: var(--mono); font-size: .8rem; color: var(--accent); word-break: break-all; }
+.facts { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; font-size: .86rem; margin: 0; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; font-variant-numeric: tabular-nums; }
+.pill { display: inline-block; font-size: .72rem; letter-spacing: .04em; text-transform: uppercase; padding: 2px 8px;
+  border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.pill.need { border-color: var(--warn); color: var(--warn); }
+table { border-collapse: collapse; width: 100%; font-size: .84rem; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--line); }
+th { font-weight: 500; color: var(--muted); font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; }
+td.mono { font-family: var(--mono); }
+.notes { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; display: grid; gap: 8px; }
+.notes h2 { font-family: var(--display); font-weight: 400; font-size: 1.4rem; margin: 0; color: var(--velvet); }
+.notes ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; max-width: 80ch; }
+.notes strong { font-weight: 600; }
+.err { color: var(--warn); }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Ring Finger Candles</h1>
+    <p class="lede">Printable fingers that push into a candlestick cup in place of a candle and hold your rings.
+      Rings below are placed where the model says each size comes to rest when slid down from the fingertip.</p>
+  </header>
+
+  <div class="bar">
+    <div class="seg" role="group" aria-label="Finger style" id="seg"></div>
+    <div class="tools">
+      <label class="sel" for="finish">Finish
+        <select id="finish">
+          <option value="gloss">Glossy wax</option>
+          <option value="wax">Matte wax</option>
+          <option value="porcelain">White porcelain</option>
+          <option value="black">Black glaze</option>
+          <option value="bone">Aged bone</option>
+        </select>
+      </label>
+      <label class="chk"><input type="checkbox" id="rings" checked> Show rings</label>
+    </div>
+  </div>
+
+  <div class="stage">
+    <canvas id="view" aria-label="3D view of three fingers standing in a candelabra"></canvas>
+    <div class="hint">Drag to turn, scroll or pinch to zoom</div>
+  </div>
+  <div class="poser" id="poser" hidden>
+    <span class="poser-title">Bend the middle finger</span>
+    <label for="j0">Knuckle <output id="j0v"></output></label><input type="range" id="j0" step="1">
+    <label for="j1">Middle joint <output id="j1v"></output></label><input type="range" id="j1" step="1">
+    <label for="j2">End joint <output id="j2v"></output></label><input type="range" id="j2" step="1">
+  </div>
+  <p class="credit" id="credit"></p>
+
+  <section class="cards" id="cards" aria-label="Fingers in this scene"></section>
+
+  <section class="notes">
+    <h2>Printing and fitting</h2>
+    <ul>
+      <li><strong>Plug:</strong> 22.0 mm across, 18 mm long, with three crush ribs to 22.6 mm. It fits standard 7/8 in (22 mm)
+        taper-candle cups (the example candlestick you sent measures 22.3 mm at the bottom of the cup and 23.5 mm at the rim).
+        Measure your own cup across the inside: if it is not 22 to 23 mm, the plug can be rebuilt to fit, or wrapped in a turn of tape.</li>
+      <li><strong>Orientation:</strong> print standing up, plug down. The wax fingers print without supports, apart from light ones
+        under the bent tip of the crooked finger with drips. The curled and hooked bone fingers need tree supports under the curl.</li>
+      <li><strong>Layer height:</strong> 0.12 mm or finer shows the nail, the cuticle and the knuckle wrinkles. A resin printer shows them
+        best and is the easiest base for a gloss or porcelain finish.</li>
+      <li class="err"><strong>Never light the wick.</strong> PLA and resin burn and drip. It is for looks only.</li>
+    </ul>
+  </section>
+
+  <section class="notes">
+    <h2>Finishing</h2>
+    <ul>
+      <li><strong>Glossy wax:</strong> print in translucent natural PLA or clear-ish resin, then brush on two thin coats of UV resin and
+        cure them in sunlight. It levels over the layer lines and dries glass-clear. Thick coats run into the creases.</li>
+      <li><strong>Drips and wick:</strong> the drip versions have the wax modelled in, and gloss makes it look wet. For real wax, drip it
+        from a lit taper held 10 to 15 cm above the fingertip, and try a test print first, because PLA softens at about 55 to 60 &deg;C.
+        Glue 2 cm of braided cotton wick into the 2.2 mm hole and darken its end.</li>
+      <li><strong>Porcelain:</strong> on a smooth base (resin, or filler primer sanded wet to 1500 grit), use gloss white enamel or white
+        under a 2-part clear. Pink pastel chalk on the knuckles and fingertip before the clear coat gives a porcelain-doll look; crackle
+        varnish gives antique craquelure; gold on the nails or along the creases suits gold rings.</li>
+      <li><strong>Black glaze:</strong> gloss black over the same smooth base, like Victorian mourning jewellery. Silver rings stand out on it.</li>
+      <li><strong>Bone:</strong> ivory paint or filament, a tea or umber wash wiped off the high spots, satin varnish.</li>
+      <li><strong>Before the rings go on:</strong> let coatings cure fully, about a day for UV resin and a week for 2-part clear.</li>
+    </ul>
+  </section>
+
+  <section class="notes">
+    <h2>Poseable bone fingers</h2>
+    <ul>
+      <li>Four printed parts per finger, joined by short pins of 1.75 mm filament. The pins and the hinge sit inside the bones, so
+        from outside you only see bone meeting bone.</li>
+      <li>Each pin goes in from one side and stops inside the bone. Fill that one small hole with filler or bone-coloured putty,
+        sand and paint over it once you are happy with how the finger moves.</li>
+      <li>Snug holes hold the pose. Use the sliders under the 3D view to try it.</li>
+    </ul>
+  </section>
+</div>
+
+<script src="__THREE__"></script>
+<script src="__ORBIT__"></script>
+<script>
+let DATA = __DATA__;   // null when the meshes are published beside the page as preview-data.json
+const LABEL = {
+  "candle-straight": "Straight wax finger", "candle-crooked": "Crooked wax finger", "candle-slim": "Slim wax finger",
+  "candle-straight-drips": "Straight finger with drips", "candle-crooked-drips": "Crooked finger with drips",
+  "candle-slim-drips": "Slim finger with drips",
+  "fem-straight": "Slender finger", "fem-curved": "Curved slender finger", "fem-pinky": "Little finger",
+  "fem-straight-drips": "Slender finger with drips", "fem-curved-drips": "Curved slender finger with drips",
+  "fem-pinky-drips": "Little finger with drips", "fem-straight-smooth": "Smooth slender finger",
+  "fem-curved-smooth": "Smooth curved finger", "fem-pinky-smooth": "Smooth little finger",
+  "bone-straight": "Straight bone finger", "bone-curled": "Curled bone finger", "bone-hook": "Hooked bone finger"
+};
+const STEEP = { "candle-straight": false, "candle-crooked": false, "candle-slim": false,
+  "candle-straight-drips": false, "candle-crooked-drips": "light ones under the bent tip", "candle-slim-drips": false,
+  "bone-straight": "under the joint lips", "bone-curled": "under the curl", "bone-hook": "under the hook" };
+
+function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+
+function decode(m) {
+  const pos = Uint8Array.from(atob(m.pos), c => c.charCodeAt(0));
+  const q = new Uint16Array(pos.buffer);
+  const idx = new Uint32Array(Uint8Array.from(atob(m.idx), c => c.charCodeAt(0)).buffer);
+  const p = new Float32Array(q.length);
+  for (let i = 0; i < q.length; i++) { const k = i % 3; p[i] = m.lo[k] + q[i] / 65535 * m.span[k]; }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute("position", new THREE.BufferAttribute(p, 3));
+  g.setIndex(new THREE.BufferAttribute(idx, 1));
+  g.computeVertexNormals();
+  return g;
+}
+
+const canvas = document.getElementById("view");
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, preserveDrawingBuffer: true });
+} catch (e) {
+  canvas.replaceWith(Object.assign(document.createElement("p"), { className: "err", textContent: "This browser could not start WebGL, so the 3D view is unavailable." }));
+}
+const scene = new THREE.Scene();
+let userMoved = false;   // once the viewer turns or zooms, a resize keeps their view
+const camera = new THREE.PerspectiveCamera(28, 1, 1, 5000);
+let controls, world;
+
+if (renderer) {
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.05;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+  // a small studio for reflections on brass and metal rings
+  const pm = new THREE.PMREMGenerator(renderer);
+  const env = new THREE.Scene();
+  const room = new THREE.Mesh(new THREE.BoxGeometry(40, 20, 40), new THREE.MeshBasicMaterial({ color: 0x241d14, side: THREE.BackSide }));
+  env.add(room);
+  [[0, 9.5, 0, 14, 0.2, 14, 3.2], [-19.5, 4, 4, 0.2, 8, 10, 1.6], [19.5, 3, -6, 0.2, 6, 8, 0.9], [0, 2, -19.5, 16, 6, 0.2, 0.6]].forEach(s => {
+    const b = new THREE.Mesh(new THREE.BoxGeometry(s[3], s[4], s[5]), new THREE.MeshBasicMaterial({ color: new THREE.Color(1, 0.93, 0.82).multiplyScalar(s[6]) }));
+    b.position.set(s[0], s[1], s[2]); env.add(b);
+  });
+  scene.environment = pm.fromScene(env, 0.04).texture;
+
+  scene.add(new THREE.HemisphereLight(0xfff4e2, 0x2b2a22, 0.35));
+  const key = new THREE.DirectionalLight(0xffe7c4, 1.6);
+  key.position.set(-260, 520, 360); key.castShadow = true;
+  key.shadow.mapSize.set(2048, 2048);
+  Object.assign(key.shadow.camera, { left: -260, right: 260, top: 260, bottom: -260, near: 50, far: 1600 });
+  key.shadow.bias = -0.0004; key.shadow.normalBias = 0.6;
+  scene.add(key);
+  const rim = new THREE.DirectionalLight(0xc8d8ff, 0.55); rim.position.set(300, 260, -380); scene.add(rim);
+
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(2000, 2000), new THREE.ShadowMaterial({ opacity: 0.22 }));
+  ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
+
+  controls = new THREE.OrbitControls(camera, canvas);
+  controls.enableDamping = true; controls.dampingFactor = 0.08;
+  controls.addEventListener("start", () => { userMoved = true; });
+  controls.minDistance = 120; controls.maxDistance = 1600; controls.maxPolarAngle = Math.PI * 0.53;
+}
+
+const FINISH = {
+  wax: () => new THREE.MeshStandardMaterial({ color: 0xeee1c6, roughness: 0.55, metalness: 0, emissive: 0x3a2410, emissiveIntensity: 0.18 }),
+  gloss: () => new THREE.MeshPhysicalMaterial({ color: 0xead9bb, roughness: 0.4, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.06, emissive: 0x3a2410, emissiveIntensity: 0.16 }),
+  porcelain: () => new THREE.MeshPhysicalMaterial({ color: 0xf6f4ef, roughness: 0.3, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.03 }),
+  black: () => new THREE.MeshPhysicalMaterial({ color: 0x1c1b1d, roughness: 0.35, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.04 }),
+  bone: () => new THREE.MeshStandardMaterial({ color: 0xe4d7b6, roughness: 0.82, metalness: 0 })
+};
+const MAT = {
+  brass: () => new THREE.MeshStandardMaterial({ color: 0x9a7a40, roughness: 0.36, metalness: 0.9 }),
+  gold: () => new THREE.MeshStandardMaterial({ color: 0xe2b65c, roughness: 0.22, metalness: 1 }),
+  silver: () => new THREE.MeshStandardMaterial({ color: 0xd7d8dc, roughness: 0.18, metalness: 1 }),
+  gem: c => new THREE.MeshStandardMaterial({ color: c, roughness: 0.08, metalness: 0.1, emissive: c, emissiveIntensity: 0.12 })
+};
+const geoCache = {};
+function fingerGeo(name) { return geoCache[name] || (geoCache[name] = decode(DATA.fingers[name].mesh)); }
+// A generic three-arm candelabra, z-up, drawn from lathe profiles and tubes.
+// Cups have a 22.6 mm bore, like a standard 7/8 in taper-candle cup.
+function lathe(profile, mat) {
+  const g = new THREE.LatheGeometry(profile.map(p => new THREE.Vector2(p[0], p[1])), 72);
+  const m = new THREE.Mesh(g, mat); m.rotation.x = Math.PI / 2; m.castShadow = m.receiveShadow = true;
+  return m;
+}
+const CUP = [[0, 0], [6, 0], [8, 2], [24, 5], [29, 8.5], [29.5, 10], [27.5, 10.6], [16, 9.4], [15, 11.5], [14.6, 14],
+  [15.4, 32], [16.6, 35.5], [16.2, 37.4], [11.3, 38], [11.3, 12], [0, 12]];
+const CUP_RIM = 38;
+function candelabra() {
+  const g = new THREE.Group();
+  const brass = MAT.brass();
+  // foot and stem: a stepped ogee foot, a baluster with knops, a collar where the arms leave
+  g.add(lathe([[0, 0], [64, 0], [65, 3], [60, 8], [50, 11], [44, 18], [36, 21], [22, 26], [15, 34], [12, 44], [14, 52],
+    [22, 60], [24, 66], [18, 74], [10, 84], [8, 104], [12, 112], [17, 118], [12, 124], [8, 132], [7, 150], [10, 158],
+    [15, 164], [17, 170], [14, 176], [10, 180], [9, 196], [13, 202], [11, 208], [8, 214], [8, 222], [0, 222]], brass));
+  const cups = [];
+  const centre = new THREE.Group(); centre.position.z = 220; centre.add(lathe(CUP, brass)); g.add(centre);
+  cups.push({ x: 0, rim: 220 + CUP_RIM });
+  for (const s of [-1, 1]) {
+    // S-shaped arm from the collar out and up to a cup
+    const curve = new THREE.CatmullRomCurve3([[6, 0, 170], [28, 0, 160], [56, 0, 164], [78, 0, 180], [88, 0, 196], [90, 0, 206]]
+      .map(p => new THREE.Vector3(s * p[0], p[1], p[2])));
+    const arm = new THREE.Mesh(new THREE.TubeGeometry(curve, 80, 4.6, 18, false), brass);
+    arm.castShadow = true; g.add(arm);
+    // a small scroll curling under the arm
+    const pts = [];
+    for (let i = 0; i <= 40; i++) {
+      const a = i / 40 * Math.PI * 1.6, r = 12 - i * 0.22;
+      pts.push(new THREE.Vector3(s * (40 + r * Math.sin(a)), 0, 150 + r * Math.cos(a)));
+    }
+    const scroll = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 60, 2.4, 12, false), brass);
+    scroll.castShadow = true; g.add(scroll);
+    const kg = new THREE.Group(); kg.position.set(s * 90, 0, 200);
+    kg.add(lathe([[0, 0], [9, 0], [11, 3], [9, 7], [7, 8], [0, 8]], brass)); g.add(kg);
+    const cup = new THREE.Group(); cup.position.set(s * 90, 0, 207); cup.add(lathe(CUP, brass)); g.add(cup);
+    cups.push({ x: s * 90, rim: 207 + CUP_RIM });
+  }
+  cups.sort((p, q) => p.x - q.x);
+  return { group: g, cups };
+}
+
+function ringMesh(row, metal, gem) {
+  const tube = 1.1, R = row.id_mm / 2 + tube;
+  const g = new THREE.Group();
+  const t = new THREE.Mesh(new THREE.TorusGeometry(R, tube, 18, 96), MAT[metal]());
+  t.castShadow = true; g.add(t);
+  if (gem) {
+    const s = new THREE.Mesh(new THREE.OctahedronGeometry(2.6, 0), MAT.gem(metal === "gold" ? 0x8e1022 : 0x2a6a8a));
+    s.position.set(0, R + tube + 1.4, 0); s.scale.set(1, 0.75, 1); g.add(s);
+  }
+  const a = new THREE.Vector3(...row.axis).normalize();
+  g.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), a);
+  g.position.set(...row.centre);
+  return g;
+}
+
+function build(sceneKey) {
+  if (!renderer) return;
+  if (world) scene.remove(world);
+  world = new THREE.Group();
+  world.rotation.x = -Math.PI / 2;   // the models are z-up
+  const S = DATA.scenes[sceneKey];
+  let top = 0;
+  posed = null;
+  const stand = candelabra();
+  world.add(stand.group);
+  for (const slot of S.slots) {
+    const cup = stand.cups[slot.cup];
+    const f = new THREE.Group();
+    f.position.set(cup.x, 0, cup.rim);
+    f.rotation.z = slot.rot * Math.PI / 180;
+    const info = slotInfo(slot);
+    if (slot.pose) {
+      const pf = poseableFinger(slot.kit, info.angles);
+      f.add(pf);
+      if (slot.sliders) posed = { finger: pf, rings: null, f };
+    } else {
+      const mesh = new THREE.Mesh(fingerGeo(slot.finger), FINISH[finishFor(info)]());
+      mesh.name = "finger"; mesh.userData.kind = info.kind;
+      mesh.castShadow = mesh.receiveShadow = true;
+      f.add(mesh);
+      if (info.wick) f.add(wick(info.wick));
+    }
+    const rings = new THREE.Group(); rings.name = "rings";
+    for (const [us, metal, gem] of slot.rings) {
+      const row = info.rings.find(r => r.us === us);
+      if (row && row.centre) rings.add(ringMesh(row, metal, gem));
+    }
+    f.add(rings);
+    if (slot.sliders && posed) posed.rings = rings;
+    world.add(f);
+    top = Math.max(top, cup.rim + info.above);
+  }
+  scene.add(world);
+  setRings(document.getElementById("rings").checked);
+  setupPoser();
+  frame();
+  cards(sceneKey);
+}
+
+// fit the whole candelabra and fingers in view, from the front and a little to the left and above
+function frame() {
+  world.updateMatrixWorld(true);
+  // frame the fingers, the cups and the top of the arms; the foot can be seen by zooming out
+  const box = new THREE.Box3().setFromObject(world);
+  box.min.y = Math.max(box.min.y, box.max.y - 230);
+  const c = box.getCenter(new THREE.Vector3()), s = box.getSize(new THREE.Vector3());
+  const v = THREE.MathUtils.degToRad(camera.fov) / 2;
+  const dist = Math.max(s.y / 2 / Math.tan(v), s.x / 2 / (Math.tan(v) * camera.aspect)) * 1.12 + s.z / 2;
+  const dir = new THREE.Vector3(-0.28, 0.22, 1).normalize();
+  controls.target.copy(c);
+  camera.position.copy(c).addScaledVector(dir, dist);
+  controls.update();
+}
+
+// jointed fingers: every part is stored in its straight rest position; each part after
+// the first hangs from a group that turns about that joint's sideways axis
+const partGeo = {};
+function poseableFinger(kitName, angles) {
+  const K = DATA.kits[kitName];
+  const root = new THREE.Group();
+  let parent = root, prev = [0, 0, 0];
+  const joints = [];
+  K.parts.forEach((part, i) => {
+    const key = kitName + "/" + part.name;
+    const geo = partGeo[key] || (partGeo[key] = decode(part.mesh));
+    const m = new THREE.Mesh(geo, FINISH[finishFor({ kind: K.kind })]());
+    m.name = "finger"; m.userData.kind = K.kind; m.castShadow = m.receiveShadow = true;
+    if (i > 0) {
+      const pv = K.pivots[i - 1];
+      const j = new THREE.Group();
+      j.position.set(pv[0] - prev[0], pv[1] - prev[1], pv[2] - prev[2]);
+      j.rotation.x = THREE.MathUtils.degToRad(angles[i - 1]);
+      parent.add(j); joints.push(j); parent = j; prev = pv;
+    }
+    m.position.set(-prev[0], -prev[1], -prev[2]);
+    parent.add(m);
+    if (i === K.parts.length - 1 && K.wick) parent.add(Object.assign(wick(K.wick), { position: new THREE.Vector3(-prev[0], -prev[1], -prev[2]) }));
+  });
+  root.userData.joints = joints;
+  root.userData.kit = kitName;
+  return root;
+}
+
+// a short cotton wick standing in the hole, bent over at the end
+function wick(w) {
+  const a = new THREE.Vector3(...w.at), d = new THREE.Vector3(...w.dir).normalize();
+  const side = new THREE.Vector3(1, 0, 0).cross(d).normalize();
+  const pts = [a.clone().addScaledVector(d, -3), a.clone().addScaledVector(d, 4), a.clone().addScaledVector(d, 8).addScaledVector(side, 0.8),
+    a.clone().addScaledVector(d, 10.5).addScaledVector(side, 2.6)];
+  const m = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 24, 0.85, 8, false),
+    new THREE.MeshStandardMaterial({ color: 0x2a221c, roughness: 0.95 }));
+  m.castShadow = true;
+  return m;
+}
+
+let finishChoice = null;  // null: wax fingers glossy, bone fingers bone
+function finishFor(info) { return finishChoice || (info.kind === "candle" ? "gloss" : "bone"); }
+function setFinish(v) {
+  finishChoice = v;
+  if (world) world.traverse(o => { if (o.name === "finger") o.material = FINISH[finishFor({ kind: o.userData.kind })](); });
+}
+
+// finger data for a slot: a one-piece STL, or a jointed kit in a named pose
+function slotInfo(slot) {
+  if (!slot.pose) return DATA.fingers[slot.finger];
+  const K = DATA.kits[slot.kit], p = K.poses[slot.pose];
+  return { kind: K.kind, poseable: true, kit: slot.kit, angles: p.angles, rings: p.rings, above: p.above,
+    volume: K.volume, pose: slot.pose };
+}
+
+let posed = null;   // the finger the sliders bend
+function setupPoser() {
+  const box = document.getElementById("poser");
+  box.hidden = !posed;
+  if (!posed) return;
+  const K = DATA.kits[posed.finger.userData.kit];
+  [0, 1, 2].forEach(i => {
+    const input = document.getElementById("j" + i), out = document.getElementById("j" + i + "v");
+    const lab = box.querySelector(`label[for="j${i}"]`);
+    const j = posed.finger.userData.joints[i];
+    input.hidden = lab.hidden = !j;
+    if (!j) return;
+    lab.firstChild.textContent = K.joints[i].name.replace(/^./, c => c.toUpperCase()) + " ";
+    const range = K.joints[i].bends_deg || [-10, 60];
+    input.min = Math.max(-10, range[0]); input.max = range[1];
+    input.value = Math.round(THREE.MathUtils.radToDeg(j.rotation.x));
+    out.textContent = input.value + "\u00b0";
+    input.oninput = () => {
+      j.rotation.x = THREE.MathUtils.degToRad(+input.value);
+      out.textContent = input.value + "\u00b0";
+      if (posed.rings) posed.rings.visible = false;   // the rings' resting places were worked out for the starting pose
+    };
+  });
+}
+
+function setRings(on) { if (world) world.traverse(o => { if (o.name === "rings") o.visible = on; }); }
+
+function ringRows(info) {
+  const rows = info.rings.filter(r => r.us >= 4 && r.us <= 12);
+  return `<div style="overflow-x:auto"><table><thead><tr><th>US size</th><th>Inner &Oslash;</th><th>Comes to rest</th></tr></thead><tbody>` +
+    rows.map(r => `<tr><td class="mono">${r.us}</td><td class="mono">${r.id_mm} mm</td><td>${
+      r.rests === "rests on the finger" ? `${r.z_mm} mm above the rim` : r.rests === "falls to the cup rim" ? "on the cup rim" : "will not go over the tip"}</td></tr>`).join("") +
+    `</tbody></table></div>`;
+}
+
+function poseCard(slot, info) {
+  const K = DATA.kits[slot.kit], J = K.joints;
+  const name = info.pose.replace(/^./, c => c.toUpperCase());
+  return `<article class="card">
+    <h2>${K.title}, ${info.pose}</h2>
+    <div class="file">${K.parts.map(p => p.file).join(", ")}</div>
+    <dl class="facts">
+      <dt>Joint angles</dt><dd>${info.angles.map((a, i) => J[i].name + " " + a + "\u00b0").join(", ")}</dd>
+      <dt>Above the rim</dt><dd>${info.above} mm</dd>
+      <dt>Pins</dt><dd>1.75 mm filament: ${J.map(j => j.pin_length_mm + " mm").join(", ")}; holes ${K.pin_hole} mm</dd>
+      <dt>Bends up to</dt><dd>${J.map(j => j.bends_deg ? j.bends_deg[1] + "\u00b0" : "?").join(", ")} towards the palm</dd>
+    </dl>
+    <div><span class="pill ${K.kind === "bone" ? "need" : ""}">${K.print}</span></div>
+    ${ringRows(info)}
+  </article>`;
+}
+
+function cards(sceneKey) {
+  const el = document.getElementById("cards");
+  el.innerHTML = DATA.scenes[sceneKey].slots.map(slot => {
+    const info = slotInfo(slot);
+    if (info.poseable) return poseCard(slot, info);
+    const sup = STEEP[slot.finger];
+    return `<article class="card">
+      <h2>${LABEL[slot.finger] || slot.finger}</h2>
+      <div class="file">${slot.finger}.stl</div>
+      <dl class="facts">
+        <dt>Above the rim</dt><dd>${info.above} mm</dd>
+        <dt>Solid volume</dt><dd>${info.volume} cm\u00b3 (about ${Math.round(info.volume * 1.24)} g PLA at 100 % infill)</dd>
+      </dl>
+      <div><span class="pill ${sup ? "need" : ""}">${sup ? "Supports " + sup : "No supports"}</span></div>
+      ${ringRows(info)}
+    </article>`;
+  }).join("");
+}
+
+function resize() {
+  if (!renderer) return;
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  renderer.setSize(w, h, false);
+  camera.aspect = w / h; camera.updateProjectionMatrix();
+  if (world && !userMoved) frame();
+}
+window.addEventListener("resize", resize);
+
+const seg = document.getElementById("seg");
+function choose(key) {
+  if (!DATA.scenes[key]) key = Object.keys(DATA.scenes)[0];
+  seg.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.key === key));
+  try { localStorage.setItem("rfc-scene", key); } catch (e) {}
+  finishChoice = null; userMoved = false;
+  const k0 = slotInfo(DATA.scenes[key].slots[0]).kind;
+  finishChoice = DATA.scenes[key].finish || null;
+  document.getElementById("finish").value = finishChoice || (k0 === "candle" ? "gloss" : "bone");
+  build(key);
+}
+document.getElementById("rings").onchange = e => setRings(e.target.checked);
+document.getElementById("finish").onchange = e => setFinish(e.target.value);
+document.getElementById("credit").textContent = "The candelabra is a generic stand-in with 22.6 mm cups, drawn to scale to show the fingers. It is not part of the print files.";
+
+async function boot() {
+  if (!DATA) {
+    try {
+      const r = await fetch("preview-data.json");
+      if (!r.ok) throw new Error(r.status);
+      DATA = await r.json();
+    } catch (e) {
+      document.getElementById("cards").innerHTML = '<p class="err">The finger models could not be loaded, so the 3D view is empty. Reload the page to try again.</p>';
+      return;
+    }
+  }
+  for (const [key, sc] of Object.entries(DATA.scenes)) {
+    const b = document.createElement("button");
+    b.id = "btn-" + key; b.textContent = sc.title; b.dataset.key = key;
+    b.onclick = () => choose(key);
+    seg.appendChild(b);
+  }
+  let start = Object.keys(DATA.scenes)[0];
+  try { start = localStorage.getItem("rfc-scene") || start; } catch (e) {}
+  if (DATA.scenes[location.hash.slice(1)]) start = location.hash.slice(1);
+  resize();
+  choose(start);
+  window.__ready = true;
+}
+boot();
+(function loop() { if (renderer) { controls.update(); renderer.render(scene, camera); } requestAnimationFrame(loop); })();
+</script>

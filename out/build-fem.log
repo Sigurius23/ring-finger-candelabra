@@ -1,0 +1,18 @@
+fem-straight: 300000 faces, watertight=True, 18.97 cm3, 98.5 mm above rim, plug 22.0 / ribs 22.63 mm, overhang 34.0 mm2, 53.9 s
+  rings rest at (mm above rim): US3:48.2, US4:18.2, US5:5.2, US6:3.0, US7:2.5, US8:2.2, US9:2.0, US10:1.7, US11:1.7, US12:1.7, US13:0.2
+fem-curved: 299986 faces, watertight=True, 18.11 cm3, 90.3 mm above rim, plug 22.0 / ribs 22.62 mm, overhang 44.0 mm2, 90.4 s
+  rings rest at (mm above rim): US3:27.8, US4:10.7, US5:4.0, US6:3.2, US7:2.7, US8:2.7, US9:2.5, US10:2.2, US11:2.0, US12:1.7, US13:0.7
+fem-pinky: 286470 faces, watertight=True, 12.84 cm3, 79.2 mm above rim, plug 22.0 / ribs 22.63 mm, overhang 25.0 mm2, 40.9 s
+  rings rest at (mm above rim): US3:3.0, US4:3.0, US5:3.0, US6:3.0, US7:2.7, US8:2.5, US9:2.2, US10:2.2, US11:2.0, US12:1.7, US13:1.0
+fem-straight-drips: 299960 faces, watertight=True, 20.12 cm3, 99.9 mm above rim, plug 22.0 / ribs 22.63 mm, overhang 352.0 mm2, 74.5 s
+  rings rest at (mm above rim): US3:85.1, US4:18.2, US5:5.7, US6:4.5, US7:4.0, US8:3.7, US9:3.7, US10:3.7, US11:3.7, US12:3.7, US13:3.5
+fem-curved-drips: 299992 faces, watertight=True, 19.13 cm3, 91.1 mm above rim, plug 22.0 / ribs 22.62 mm, overhang 368.0 mm2, 118.2 s
+  rings rest at (mm above rim): US3:27.6, US4:10.7, US5:5.5, US6:4.7, US7:4.7, US8:4.7, US9:4.7, US10:4.7, US11:4.5, US12:4.2, US13:4.0
+fem-pinky-drips: 299912 faces, watertight=True, 14.1 cm3, 80.5 mm above rim, plug 22.0 / ribs 22.63 mm, overhang 413.0 mm2, 55.2 s
+  rings rest at (mm above rim): US3:4.7, US4:4.7, US5:4.7, US6:4.7, US7:4.7, US8:4.7, US9:4.7, US10:4.5, US11:4.2, US12:4.0, US13:4.0
+fem-straight-smooth: 299972 faces, watertight=True, 18.96 cm3, 98.6 mm above rim, plug 22.0 / ribs 22.63 mm, overhang 34.0 mm2, 53.7 s
+  rings rest at (mm above rim): US3:48.7, US4:18.0, US5:5.0, US6:3.0, US7:2.5, US8:2.2, US9:2.0, US10:1.7, US11:1.7, US12:1.7, US13:0.2
+fem-curved-smooth: 299984 faces, watertight=True, 18.11 cm3, 90.3 mm above rim, plug 22.0 / ribs 22.62 mm, overhang 42.0 mm2, 88.2 s
+  rings rest at (mm above rim): US3:25.3, US4:10.4, US5:4.0, US6:3.2, US7:2.7, US8:2.7, US9:2.5, US10:2.2, US11:2.0, US12:1.7, US13:0.7
+fem-pinky-smooth: 285950 faces, watertight=True, 12.85 cm3, 79.1 mm above rim, plug 22.0 / ribs 22.63 mm, overhang 25.0 mm2, 38.0 s
+  rings rest at (mm above rim): US3:3.0, US4:3.0, US5:3.0, US6:3.0, US7:2.7, US8:2.5, US9:2.2, US10:2.2, US11:2.0, US12:1.7, US13:1.0
