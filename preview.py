@@ -90,7 +90,7 @@ def main():
     for i, n in enumerate(("base", "proximal", "middle", "distal")):
         m = trimesh.load(os.path.join(a.poseable, f"part-{n}.stl"))
         m.apply_translation([0, 0, z])
-        parts.append(dict(name=n, file=f"bone-{n}.stl", mesh=pack(m, 30000)))
+        parts.append(dict(name=n, file=f"bone-{n}.stl", mesh=pack(m, min(a.faces, 30000))))
         if i < 3:
             z += rep["pivots_mm"][i]
             pivots.append([0.0, 0.0, round(z, 3)])
@@ -110,7 +110,7 @@ def main():
         data["kits"][tag] = dict(
             title="Curling " + ("smooth " if "smooth" in tag else "") + ("little finger" if "pinky" in tag else "finger"),
             kind="candle", pin_hole=rep["pin_hole_mm"], pivots=rep["pivots"],
-            parts=[dict(name=n, file=f"{tag}-{n}.stl", mesh=pack(trimesh.load(os.path.join(a.curl, f"{tag}-{n}.stl")), 40000))
+            parts=[dict(name=n, file=f"{tag}-{n}.stl", mesh=pack(trimesh.load(os.path.join(a.curl, f"{tag}-{n}.stl")), min(a.faces, 40000)))
                    for n in names],
             joints=[dict(name=k, **v) for k, v in rep["joints"].items()],
             poses={k: dict(angles=v["angles_deg"], rings=v["rings"], above=v["above_cup_mm"]) for k, v in rep["poses"].items()},
