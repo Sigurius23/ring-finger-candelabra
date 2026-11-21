@@ -1,1 +1,36 @@
 fem-straight base {'file': 'fem-straight-base.stl', 'watertight': True, 'volume_cm3': 14.42}
+fem-straight middle {'file': 'fem-straight-middle.stl', 'watertight': True, 'volume_cm3': 2.84}
+fem-straight tip {'file': 'fem-straight-tip.stl', 'watertight': True, 'volume_cm3': 1.49}
+fem-straight middle knuckle {'bends_deg': (0.0, 75.0), 'pin_length_mm': 9.0, 'axis': [0.0, -3.865, 44.0], 'crease_gap_mm': 2.4}
+fem-straight end knuckle {'bends_deg': (-2.5, 75.0), 'pin_length_mm': 8.2, 'axis': [0.0, -2.987, 73.0], 'crease_gap_mm': 2.4}
+fem-straight straight (0.0, 0.0) reachable True
+fem-straight relaxed (25.0, 15.0) reachable True
+fem-straight curled (60.0, 50.0) reachable True
+fem-straight hooked (72.0, 70.0) reachable True
+fem-pinky base {'file': 'fem-pinky-base.stl', 'watertight': True, 'volume_cm3': 10.16}
+fem-pinky middle {'file': 'fem-pinky-middle.stl', 'watertight': True, 'volume_cm3': 1.63}
+fem-pinky tip {'file': 'fem-pinky-tip.stl', 'watertight': True, 'volume_cm3': 0.91}
+fem-pinky middle knuckle {'bends_deg': (-2.5, 75.0), 'pin_length_mm': 7.6, 'axis': [0.0, -2.676, 30.25], 'crease_gap_mm': 2.4}
+fem-pinky end knuckle {'bends_deg': (-2.5, 75.0), 'pin_length_mm': 6.9, 'axis': [0.0, -1.976, 56.25], 'crease_gap_mm': 2.4}
+fem-pinky straight (0.0, 0.0) reachable True
+fem-pinky relaxed (25.0, 15.0) reachable True
+fem-pinky curled (60.0, 50.0) reachable True
+fem-pinky hooked (72.0, 70.0) reachable True
+fem-straight-smooth base {'file': 'fem-straight-smooth-base.stl', 'watertight': True, 'volume_cm3': 14.42}
+fem-straight-smooth middle {'file': 'fem-straight-smooth-middle.stl', 'watertight': True, 'volume_cm3': 2.84}
+fem-straight-smooth tip {'file': 'fem-straight-smooth-tip.stl', 'watertight': True, 'volume_cm3': 1.49}
+fem-straight-smooth middle knuckle {'bends_deg': (0.0, 75.0), 'pin_length_mm': 9.0, 'axis': [0.0, -3.865, 44.0], 'crease_gap_mm': 2.4}
+fem-straight-smooth end knuckle {'bends_deg': (-2.5, 72.5), 'pin_length_mm': 8.2, 'axis': [0.0, -2.987, 73.0], 'crease_gap_mm': 2.4}
+fem-straight-smooth straight (0.0, 0.0) reachable True
+fem-straight-smooth relaxed (25.0, 15.0) reachable True
+fem-straight-smooth curled (60.0, 50.0) reachable True
+fem-straight-smooth hooked (72.0, 70.0) reachable True
+fem-pinky-smooth base {'file': 'fem-pinky-smooth-base.stl', 'watertight': True, 'volume_cm3': 10.16}
+fem-pinky-smooth middle {'file': 'fem-pinky-smooth-middle.stl', 'watertight': True, 'volume_cm3': 1.63}
+fem-pinky-smooth tip {'file': 'fem-pinky-smooth-tip.stl', 'watertight': True, 'volume_cm3': 0.91}
+fem-pinky-smooth middle knuckle {'bends_deg': (-2.5, 75.0), 'pin_length_mm': 7.6, 'axis': [0.0, -2.676, 30.25], 'crease_gap_mm': 2.4}
+fem-pinky-smooth end knuckle {'bends_deg': (-2.5, 72.5), 'pin_length_mm': 6.9, 'axis': [0.0, -1.976, 56.25], 'crease_gap_mm': 2.4}
+fem-pinky-smooth straight (0.0, 0.0) reachable True
+fem-pinky-smooth relaxed (25.0, 15.0) reachable True
+fem-pinky-smooth curled (60.0, 50.0) reachable True
+fem-pinky-smooth hooked (72.0, 70.0) reachable True

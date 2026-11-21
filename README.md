@@ -150,6 +150,17 @@ Keep sulfur-containing modelling clay away from silver, because it tarnishes it.
 
 **Never light the wick.** PLA and resin burn and drip; the wick is only there for looks.
 
+## Curling female fingers
+
+`out/curl/` holds the slender finger and the little finger in three rigid pieces each (base with the plug, middle, fingertip), detailed or `-smooth`.
+They are joined at the two knuckles with hidden pins of 1.75 mm filament, so the finger curls and holds its pose.
+
+- **Back of the finger:** the lower piece ends in a rounded knuckle that the piece above slides over, so the back stays closed at any angle and the knuckle shows as the finger curls. You see a hairline at each knuckle crease.
+- **Palm side:** a rigid finger cannot squash like skin, so the palm crease is a groove about 2.4 mm wide that closes as the finger curls. Inside it the hinge rings are visible when the finger is straight.
+- **Range:** each knuckle curls up to about 72 to 75 degrees.
+- **Pins:** one pin per knuckle goes in from the side and stops inside (lengths are in `out/curl/*.json`). Fill the small entry hole and paint over it.
+- **Printing:** each piece upright, no supports. Coat each piece separately and keep the coat thin on the joint faces so they still slide.
+
 ## Poseable bone finger
 
 `out/poseable/` is a bone finger in four parts joined by pins cut from ordinary 1.75 mm filament.

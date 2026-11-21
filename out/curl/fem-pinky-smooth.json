@@ -1,0 +1,851 @@
+{
+ "finger": "fem-pinky-smooth",
+ "pin_hole_mm": 1.8,
+ "parts": {
+  "base": {
+   "file": "fem-pinky-smooth-base.stl",
+   "watertight": true,
+   "volume_cm3": 10.16
+  },
+  "middle": {
+   "file": "fem-pinky-smooth-middle.stl",
+   "watertight": true,
+   "volume_cm3": 1.63
+  },
+  "tip": {
+   "file": "fem-pinky-smooth-tip.stl",
+   "watertight": true,
+   "volume_cm3": 0.91
+  }
+ },
+ "joints": {
+  "middle knuckle": {
+   "bends_deg": [
+    -2.5,
+    75.0
+   ],
+   "pin_length_mm": 7.6,
+   "axis": [
+    0.0,
+    -2.676,
+    30.25
+   ],
+   "crease_gap_mm": 2.4
+  },
+  "end knuckle": {
+   "bends_deg": [
+    -2.5,
+    72.5
+   ],
+   "pin_length_mm": 6.9,
+   "axis": [
+    0.0,
+    -1.976,
+    56.25
+   ],
+   "crease_gap_mm": 2.4
+  }
+ },
+ "poses": {
+  "straight": {
+   "angles_deg": [
+    0.0,
+    0.0
+   ],
+   "reachable": true,
+   "above_cup_mm": 80.4,
+   "rings": [
+    {
+     "us": 3.0,
+     "id_mm": 14.1,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 4.0,
+     "id_mm": 14.9,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 5.0,
+     "id_mm": 15.7,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 6.0,
+     "id_mm": 16.5,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 7.0,
+     "id_mm": 17.3,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 8.0,
+     "id_mm": 18.1,
+     "rests": "rests on the finger",
+     "z_mm": 2.2,
+     "along_mm": 77.8,
+     "centre": [
+      0.0,
+      -0.19,
+      2.2
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 9.0,
+     "id_mm": 18.9,
+     "rests": "rests on the finger",
+     "z_mm": 2.2,
+     "along_mm": 77.8,
+     "centre": [
+      0.0,
+      -0.19,
+      2.2
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 10.0,
+     "id_mm": 19.8,
+     "rests": "rests on the finger",
+     "z_mm": 2.0,
+     "along_mm": 78.0,
+     "centre": [
+      0.0,
+      -0.17,
+      1.95
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 11.0,
+     "id_mm": 20.6,
+     "rests": "rests on the finger",
+     "z_mm": 2.0,
+     "along_mm": 78.0,
+     "centre": [
+      0.0,
+      -0.17,
+      1.95
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 12.0,
+     "id_mm": 21.4,
+     "rests": "rests on the finger",
+     "z_mm": 1.7,
+     "along_mm": 78.2,
+     "centre": [
+      0.0,
+      -0.15,
+      1.7
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 13.0,
+     "id_mm": 22.2,
+     "rests": "rests on the finger",
+     "z_mm": 1.0,
+     "along_mm": 79.0,
+     "centre": [
+      0.0,
+      -0.08,
+      0.96
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    }
+   ]
+  },
+  "relaxed": {
+   "angles_deg": [
+    25.0,
+    15.0
+   ],
+   "reachable": true,
+   "above_cup_mm": 76.0,
+   "rings": [
+    {
+     "us": 3.0,
+     "id_mm": 14.1,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 4.0,
+     "id_mm": 14.9,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 5.0,
+     "id_mm": 15.7,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 6.0,
+     "id_mm": 16.5,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 7.0,
+     "id_mm": 17.3,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 8.0,
+     "id_mm": 18.1,
+     "rests": "rests on the finger",
+     "z_mm": 2.2,
+     "along_mm": 77.8,
+     "centre": [
+      0.0,
+      -0.19,
+      2.2
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 9.0,
+     "id_mm": 18.9,
+     "rests": "rests on the finger",
+     "z_mm": 2.2,
+     "along_mm": 77.8,
+     "centre": [
+      0.0,
+      -0.19,
+      2.2
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 10.0,
+     "id_mm": 19.8,
+     "rests": "rests on the finger",
+     "z_mm": 2.0,
+     "along_mm": 78.0,
+     "centre": [
+      0.0,
+      -0.17,
+      1.95
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 11.0,
+     "id_mm": 20.6,
+     "rests": "rests on the finger",
+     "z_mm": 2.0,
+     "along_mm": 78.0,
+     "centre": [
+      0.0,
+      -0.17,
+      1.95
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 12.0,
+     "id_mm": 21.4,
+     "rests": "rests on the finger",
+     "z_mm": 1.7,
+     "along_mm": 78.2,
+     "centre": [
+      0.0,
+      -0.15,
+      1.7
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 13.0,
+     "id_mm": 22.2,
+     "rests": "rests on the finger",
+     "z_mm": 1.0,
+     "along_mm": 79.0,
+     "centre": [
+      0.0,
+      -0.08,
+      0.96
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    }
+   ]
+  },
+  "curled": {
+   "angles_deg": [
+    60.0,
+    50.0
+   ],
+   "reachable": true,
+   "above_cup_mm": 49.7,
+   "rings": [
+    {
+     "us": 3.0,
+     "id_mm": 14.1,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 4.0,
+     "id_mm": 14.9,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 5.0,
+     "id_mm": 15.7,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 6.0,
+     "id_mm": 16.5,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 7.0,
+     "id_mm": 17.3,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 8.0,
+     "id_mm": 18.1,
+     "rests": "rests on the finger",
+     "z_mm": 2.2,
+     "along_mm": 77.8,
+     "centre": [
+      0.0,
+      -0.19,
+      2.2
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 9.0,
+     "id_mm": 18.9,
+     "rests": "rests on the finger",
+     "z_mm": 2.2,
+     "along_mm": 77.8,
+     "centre": [
+      0.0,
+      -0.19,
+      2.2
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 10.0,
+     "id_mm": 19.8,
+     "rests": "rests on the finger",
+     "z_mm": 2.0,
+     "along_mm": 78.0,
+     "centre": [
+      0.0,
+      -0.17,
+      1.95
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 11.0,
+     "id_mm": 20.6,
+     "rests": "rests on the finger",
+     "z_mm": 2.0,
+     "along_mm": 78.0,
+     "centre": [
+      0.0,
+      -0.17,
+      1.95
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 12.0,
+     "id_mm": 21.4,
+     "rests": "rests on the finger",
+     "z_mm": 1.7,
+     "along_mm": 78.2,
+     "centre": [
+      0.0,
+      -0.15,
+      1.7
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 13.0,
+     "id_mm": 22.2,
+     "rests": "rests on the finger",
+     "z_mm": 1.0,
+     "along_mm": 79.0,
+     "centre": [
+      0.0,
+      -0.08,
+      0.96
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    }
+   ]
+  },
+  "hooked": {
+   "angles_deg": [
+    72.0,
+    70.0
+   ],
+   "reachable": true,
+   "above_cup_mm": 44.7,
+   "rings": [
+    {
+     "us": 3.0,
+     "id_mm": 14.1,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 4.0,
+     "id_mm": 14.9,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 5.0,
+     "id_mm": 15.7,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 6.0,
+     "id_mm": 16.5,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 7.0,
+     "id_mm": 17.3,
+     "rests": "rests on the finger",
+     "z_mm": 2.5,
+     "along_mm": 77.5,
+     "centre": [
+      0.0,
+      -0.22,
+      2.45
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 8.0,
+     "id_mm": 18.1,
+     "rests": "rests on the finger",
+     "z_mm": 2.2,
+     "along_mm": 77.8,
+     "centre": [
+      0.0,
+      -0.19,
+      2.2
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 9.0,
+     "id_mm": 18.9,
+     "rests": "rests on the finger",
+     "z_mm": 2.2,
+     "along_mm": 77.8,
+     "centre": [
+      0.0,
+      -0.19,
+      2.2
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 10.0,
+     "id_mm": 19.8,
+     "rests": "rests on the finger",
+     "z_mm": 2.0,
+     "along_mm": 78.0,
+     "centre": [
+      0.0,
+      -0.17,
+      1.95
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 11.0,
+     "id_mm": 20.6,
+     "rests": "rests on the finger",
+     "z_mm": 2.0,
+     "along_mm": 78.0,
+     "centre": [
+      0.0,
+      -0.17,
+      1.95
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 12.0,
+     "id_mm": 21.4,
+     "rests": "rests on the finger",
+     "z_mm": 1.7,
+     "along_mm": 78.2,
+     "centre": [
+      0.0,
+      -0.15,
+      1.7
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    },
+    {
+     "us": 13.0,
+     "id_mm": 22.2,
+     "rests": "rests on the finger",
+     "z_mm": 1.0,
+     "along_mm": 79.0,
+     "centre": [
+      0.0,
+      -0.08,
+      0.96
+     ],
+     "axis": [
+      0.0,
+      0.088,
+      -0.996
+     ]
+    }
+   ]
+  }
+ },
+ "pivots": [
+  [
+   0.0,
+   -2.676,
+   30.25
+  ],
+  [
+   0.0,
+   -1.976,
+   56.25
+  ]
+ ]
+}

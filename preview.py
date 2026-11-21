@@ -19,9 +19,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 SCENES = {
     "curl": dict(title="Curling", finish="porcelain", slots=[
-        dict(kit="fem-straight", pose="curled", cup=0, rot=25, rings=[(6, "gold", True)]),
-        dict(kit="fem-straight", pose="relaxed", cup=1, rot=-5, rings=[(5, "gold", True), (7, "gold", False)], sliders=True),
-        dict(kit="fem-pinky", pose="hooked", cup=2, rot=-30, rings=[(4, "gold", True)]),
+        dict(kit="fem-straight-smooth", pose="curled", cup=0, rot=25, rings=[(6, "gold", True)]),
+        dict(kit="fem-straight-smooth", pose="relaxed", cup=1, rot=-5, rings=[(5, "gold", True), (7, "gold", False)], sliders=True),
+        dict(kit="fem-pinky-smooth", pose="hooked", cup=2, rot=-30, rings=[(4, "gold", True)]),
     ]),
     "fem": dict(title="Female", finish="gloss", slots=[
         dict(finger="fem-curved", cup=0, rot=25, rings=[(5, "gold", True), (7, "silver", False)]),
